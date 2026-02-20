@@ -16,9 +16,44 @@ export default function Home() {
         "Retail is treated as editorial space: part showroom, part narrative platform for Chinese creative voices.",
     },
   ];
+  const gallery = [
+    {
+      src: "https://cdn.pixabay.com/photo/2025/06/30/01/24/01-24-42-704_640.jpg",
+      title: "Sharp Tailoring",
+      note: "Designer styling mood",
+      span: "sm:col-span-2 sm:row-span-1",
+    },
+    {
+      src: "https://wwd.com/wp-content/uploads/2025/02/17352009850896801-1.jpg",
+      title: "Modern Heritage",
+      note: "New Chinese style mood",
+      span: "sm:col-span-1 sm:row-span-1",
+    },
+    {
+      src: "https://cdn.pixabay.com/photo/2019/10/21/06/18/make-up-4565223_640.jpg",
+      title: "Product Flatlay",
+      note: "Accessory/product sample",
+      span: "sm:col-span-1 sm:row-span-1",
+    },
+    {
+      src: "https://cdn.pixabay.com/photo/2021/08/03/06/47/clock-6518632_640.jpg",
+      title: "Jewelry Detail",
+      note: "Product material focus",
+      span: "sm:col-span-1 sm:row-span-1",
+    },
+    {
+      src: "https://cdn.pixabay.com/photo/2022/01/27/12/06/fashion-6971936_640.jpg",
+      title: "Monochrome Energy",
+      note: "Editorial look sample",
+      span: "sm:col-span-1 sm:row-span-1",
+    },
+
+  ];
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#f6f0e8] text-[#1f1812]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(168,114,66,0.18),transparent_40%),radial-gradient(circle_at_80%_75%,rgba(114,18,18,0.18),transparent_42%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background:repeating-linear-gradient(120deg,rgba(70,36,14,0.26)_0_1px,transparent_1px_15px)]" />
       <div
         className="pointer-events-none absolute -top-32 left-[-120px] h-[460px] w-[460px] rounded-full bg-[#cfb08a]/35 blur-3xl"
         style={{ animation: "driftA 11s ease-in-out infinite" }}
@@ -76,6 +111,47 @@ export default function Home() {
               </p>
             </article>
           ))}
+        </section>
+
+        <section className="rounded-3xl border border-[#7f1d1d]/25 bg-[#120d0a]/90 p-5 text-[#f6eadf] sm:p-7">
+          <div className="mb-4 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-[#d5b89a]">
+                Visual Moodboard
+              </p>
+              <h2 className="mt-2 font-['Times_New_Roman',serif] text-3xl sm:text-4xl">
+                Sample Designer Product Display
+              </h2>
+            </div>
+            <p className="max-w-xs text-right text-xs leading-relaxed text-[#d0beae]">
+              Reference imagery for layout concept and mood direction.
+            </p>
+          </div>
+
+          <div className="grid auto-rows-[200px] grid-cols-1 gap-3 sm:grid-cols-3">
+            {gallery.map((item) => (
+              <article
+                key={item.src}
+                className={`group relative overflow-hidden rounded-2xl border border-white/10 ${item.span}`}
+              >
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <p className="font-['Times_New_Roman',serif] text-xl leading-tight">
+                    {item.title}
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-[#e8d8c7]">
+                    {item.note}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
